@@ -592,8 +592,8 @@ static int decode_nal_units(H264Context *h, const uint8_t *buf, int buf_size)
     ret = ff_h2645_packet_split(&h->pkt, buf, buf_size, avctx, h->is_avc, h->nal_length_size,
                                 avctx->codec_id, 0, 0);
     if (ret < 0) {
-        av_log(avctx, AV_LOG_ERROR,
-               "Error splitting the input into NAL units.\n");
+        // av_log(avctx, AV_LOG_ERROR,
+        //        "Error splitting the input into NAL units.\n");
         return ret;
     }
 
@@ -1018,7 +1018,7 @@ static int h264_decode_frame(AVCodecContext *avctx, AVFrame *pict,
         if (avctx->skip_frame >= AVDISCARD_NONREF ||
             buf_size >= 4 && !memcmp("Q264", buf, 4))
             return buf_size;
-        av_log(avctx, AV_LOG_ERROR, "no frame!\n");
+        // av_log(avctx, AV_LOG_ERROR, "no frame!\n");
         return AVERROR_INVALIDDATA;
     }
 

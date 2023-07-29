@@ -3162,8 +3162,8 @@ static int decode_nal_units(HEVCContext *s, const uint8_t *buf, int length)
     ret = ff_h2645_packet_split(&s->pkt, buf, length, s->avctx, s->is_nalff,
                                 s->nal_length_size, s->avctx->codec_id, 1, 0);
     if (ret < 0) {
-        av_log(s->avctx, AV_LOG_ERROR,
-               "Error splitting the input into NAL units.\n");
+        // av_log(s->avctx, AV_LOG_ERROR,
+        //        "Error splitting the input into NAL units.\n");
         return ret;
     }
 

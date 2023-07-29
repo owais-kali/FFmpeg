@@ -2653,8 +2653,7 @@ static int process_input_packet(InputStream *ist, const AVPacket *pkt, int no_eo
 
         if (ret < 0) {
             if (decode_failed) {
-                av_log(NULL, AV_LOG_ERROR, "Error while decoding stream #%d:%d: %s\n",
-                       ist->file_index, ist->st->index, av_err2str(ret));
+                
             } else {
                 av_log(NULL, AV_LOG_FATAL, "Error while processing the decoded "
                        "data for stream #%d:%d\n", ist->file_index, ist->st->index);
